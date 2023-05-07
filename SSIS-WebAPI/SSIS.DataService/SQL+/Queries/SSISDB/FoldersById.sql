@@ -18,9 +18,9 @@
 
 SELECT
    folder_id FolderId
-  ,name FolderName
+  ,name Name
   ,description Description
-  ,created_time CreatedTime
+  ,created_time CreatedAt
   ,created_by_name CreatedBy
 FROM Catalog.Folders
 WHERE folder_id = @Id;

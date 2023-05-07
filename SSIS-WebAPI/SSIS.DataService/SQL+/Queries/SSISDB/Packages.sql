@@ -14,13 +14,13 @@
 --+Parameters
 
 SELECT p.package_id PackageId
-  ,p.name PackageName
+  ,p.name Name
   ,p.description Description
   ,pr.name ProjectName
   ,f.name FolderName
   ,p.package_format_version PackageFormatVersion
   ,p.validation_status ValidationStatus
-  ,p.last_validation_time LastValidationTime
+  ,p.last_validation_time LastValidationAt
   ,p.package_guid PackageGuid
   ,p.version_guid VersionGuid
   ,p.version_major VersionMajor

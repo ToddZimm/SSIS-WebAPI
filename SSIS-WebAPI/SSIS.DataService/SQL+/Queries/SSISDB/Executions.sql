@@ -1,6 +1,6 @@
 ﻿--+SqlPlusRoutine
     --&SelectType=MultiRow
-    --&Comment=Returns list of package executions in the SSIS Catalog
+    --&Comment=Returns list of package executions ordered by most recent.
     --&Author=Todd Zimmerman
 --+SqlPlusRoutine
 
@@ -41,7 +41,7 @@ SELECT ex.execution_id ExecutionId
   ,ex.folder_name FolderName
   ,ex.project_name ProjectName
   ,ex.package_name PackageName
-  ,ex.status Status
+  ,ex.status StatusId
   ,CAST(CASE ex.status
      WHEN 1 THEN 'Created'
      WHEN 2 THEN 'Running'
@@ -59,12 +59,12 @@ SELECT ex.execution_id ExecutionId
       AND em.operation_id = ex.execution_id
     order by message_time, event_message_id
    ) FirstErrorMessage
-  ,ex.created_time CreatedTime
-  ,ex.start_time StartTime
-  ,ex.end_time EndTime
+  ,ex.created_time CreatedAt
+  ,ex.start_time StartedAt
+  ,ex.end_time EndedAt
   ,ex.environment_folder_name EnvironmentFolder
   ,ex.environment_name EnvironmentName
-  ,ex.caller_name Caller
+  ,ex.caller_name CalledBy
   ,ex.executed_as_name ExecutedAs
   ,ex.stopped_by_name StoppedBy
   ,ex.use32bitruntime Use32BitRuntime
