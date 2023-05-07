@@ -51,11 +51,12 @@ SELECT ex.execution_id ExecutionId
   ,DATEDIFF(SECOND, ex.start_time, ex.end_time) DurationSeconds
   ,CASE
      WHEN DATEDIFF(SECOND, ex.start_time, ex.end_time) < 90 
-       THEN FORMAT(DATEDIFF(SECOND, ex.start_time, ex.end_time), 'N0') + ' seconds'
+       THEN FORMAT(DATEDIFF(MILLISECOND, ex.start_time, ex.end_time) / 1000.0, 'N1') + ' seconds'
      WHEN DATEDIFF(SECOND, ex.start_time, ex.end_time) < 3600 
        THEN FORMAT(DATEDIFF(SECOND, ex.start_time, ex.end_time) / 60.0, 'N1') + ' minutes'
      ELSE FORMAT(DATEDIFF(SECOND, ex.start_time, ex.end_time) / 60.0 / 60.0, 'N1') + ' hours'
    END AS DurationDisplay
+  ,machine_name ServerName
 FROM catalog.executions ex 
 LEFT JOIN (
   SELECT f.name folder_name, pr.name project_name, p.name package_name, p.package_id

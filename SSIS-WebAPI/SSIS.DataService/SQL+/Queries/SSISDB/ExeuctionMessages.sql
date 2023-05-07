@@ -20,9 +20,15 @@
 
 --+Parameters
 
-SELECT operation_message_id MessageId
+SELECT event_message_id MessageId
   ,operation_id ExecutionId
   ,message_time CreatedAt
+  ,CASE 
+    WHEN event_name IN('OnError', 'OnTaskFailed') THEN 'Error'
+    WHEN event_name IN('OnWarning') THEN 'Warning'
+    ELSE 'Success'
+   END Status
+  ,message Message
   ,message_type MessageTypeId
   ,CASE message_type 
      WHEN 10 THEN 'Pre-validate'
@@ -53,10 +59,12 @@ SELECT operation_message_id MessageId
      WHEN 60 THEN 'Data Flow task'
      ELSE 'Unknown'
    END MessageSourceName
-  ,message Message
-FROM catalog.operation_messages om
+  ,event_name EventName
+  ,subcomponent_name SubComponentName
+  ,execution_path ExecutionPath
+FROM catalog.event_messages
 WHERE operation_id = @ExecutionId
   AND (@BasicLogging = 0 OR message_type > 20)
-ORDER BY message_time, operation_message_id;
+ORDER BY message_time, event_message_id;
 
 SET @Count = @@ROWCOUNT;

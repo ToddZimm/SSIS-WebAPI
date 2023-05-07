@@ -76,6 +76,7 @@ SELECT ex.execution_id ExecutionId
        THEN FORMAT(DATEDIFF(SECOND, ex.start_time, ex.end_time) / 60.0, 'N1') + ' minutes'
      ELSE FORMAT(DATEDIFF(SECOND, ex.start_time, ex.end_time) / 60.0 / 60.0, 'N1') + ' hours'
    END AS DurationDisplay
+  ,machine_name ServerName
 FROM catalog.executions ex 
 LEFT JOIN (
   SELECT f.name folder_name, pr.name project_name, p.name package_name, p.package_id
