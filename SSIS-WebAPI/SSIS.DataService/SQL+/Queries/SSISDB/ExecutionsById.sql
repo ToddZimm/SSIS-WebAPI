@@ -17,7 +17,7 @@
 --+Parameters
 
 SELECT ex.execution_id ExecutionId
-  ,pkg.package_id PackageId
+  ,ISNULL(pkg.package_id, 0) PackageId
   ,ex.folder_name FolderName
   ,ex.project_name ProjectName
   ,ex.package_name PackageName
@@ -57,7 +57,7 @@ SELECT ex.execution_id ExecutionId
      ELSE FORMAT(DATEDIFF(SECOND, ex.start_time, ex.end_time) / 60.0 / 60.0, 'N1') + ' hours'
    END AS DurationDisplay
 FROM catalog.executions ex 
-INNER JOIN (
+LEFT JOIN (
   SELECT f.name folder_name, pr.name project_name, p.name package_name, p.package_id
   FROM catalog.packages p
   LEFT JOIN catalog.projects pr on pr.project_id = p.project_id
