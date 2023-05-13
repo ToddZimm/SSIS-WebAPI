@@ -10,8 +10,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.SSISDB
 {
-    #nullable enable
-
     #region Using Statments
 
     using SSIS.DataService.SSISDB.Models;

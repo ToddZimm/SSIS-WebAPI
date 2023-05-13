@@ -17,6 +17,6 @@
 
     public class Projects
     {
-        public List<Package> Value { set; get;}
+        public List<Project>? Value { set; get;}
     }
 }

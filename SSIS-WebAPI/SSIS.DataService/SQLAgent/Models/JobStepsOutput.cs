@@ -11,8 +11,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.SQLAgent.Models
 {
-    #nullable enable
-
 
     #region usings
 
@@ -41,7 +39,7 @@ namespace SSIS.DataService.SQLAgent.Models
         /// <summary>
         /// List of JobStepsResult.
         /// </summary>
-        public List<JobStepsResult>? ResultData { set; get; }
+        public List<JobStepsResult> ResultData { set; get; }
 
         #endregion Result Data
     }
@@ -79,7 +77,7 @@ namespace SSIS.DataService.SQLAgent.Models
         /// <param name="OnFailAction">Maps to table value column OnFailAction.</param>
         /// <param name="RetryAttempts">Maps to table value column RetryAttempts.</param>
         /// <param name="RetryIntervalMinutes">Maps to table value column RetryIntervalMinutes.</param>
-        public JobStepsResult(Guid? StepId, string Name, Guid JobId, string JobName, int StepSequence, string Subsystem, long? SSISPackageId, string? Command, string? DatabaseName, string? DatabaseUserName, string? ProxyName, DateTime? LastRunAt, string LastOutcome, string? OnSuccessAction, string? OnFailAction, int RetryAttempts, int RetryIntervalMinutes)
+        public JobStepsResult(Guid? StepId, string Name, Guid JobId, string JobName, int StepSequence, string Subsystem, long? SSISPackageId, string Command, string DatabaseName, string DatabaseUserName, string ProxyName, DateTime? LastRunAt, string LastOutcome, string OnSuccessAction, string OnFailAction, int RetryAttempts, int RetryIntervalMinutes)
         {
              this.StepId = StepId;
              this.Name = Name;
@@ -139,22 +137,22 @@ namespace SSIS.DataService.SQLAgent.Models
         /// <summary>
         /// Maps to table value column Command.
         /// </summary>
-        public string? Command { set; get; }
+        public string Command { set; get; }
 
         /// <summary>
         /// Maps to table value column DatabaseName.
         /// </summary>
-        public string? DatabaseName { set; get; }
+        public string DatabaseName { set; get; }
 
         /// <summary>
         /// Maps to table value column DatabaseUserName.
         /// </summary>
-        public string? DatabaseUserName { set; get; }
+        public string DatabaseUserName { set; get; }
 
         /// <summary>
         /// Maps to table value column ProxyName.
         /// </summary>
-        public string? ProxyName { set; get; }
+        public string ProxyName { set; get; }
 
         /// <summary>
         /// Maps to table value column LastRunAt.
@@ -169,12 +167,12 @@ namespace SSIS.DataService.SQLAgent.Models
         /// <summary>
         /// Maps to table value column OnSuccessAction.
         /// </summary>
-        public string? OnSuccessAction { set; get; }
+        public string OnSuccessAction { set; get; }
 
         /// <summary>
         /// Maps to table value column OnFailAction.
         /// </summary>
-        public string? OnFailAction { set; get; }
+        public string OnFailAction { set; get; }
 
         /// <summary>
         /// Maps to table value column RetryAttempts.

@@ -10,8 +10,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.SQLAgent
 {
-    #nullable enable
-
     #region Using Statments
 
     using SSIS.DataService.SQLAgent.Models;

@@ -11,8 +11,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.SSISDB.Models
 {
-    #nullable enable
-
 
     #region usings
 
@@ -41,7 +39,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// List of UnresolvedExecutionErrorsResult.
         /// </summary>
-        public List<UnresolvedExecutionErrorsResult>? ResultData { set; get; }
+        public List<UnresolvedExecutionErrorsResult> ResultData { set; get; }
 
         #endregion Result Data
     }
@@ -82,7 +80,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <param name="DurationSeconds">Maps to table value column DurationSeconds.</param>
         /// <param name="DurationDisplay">Maps to table value column DurationDisplay.</param>
         /// <param name="ServerName">Maps to table value column ServerName.</param>
-        public UnresolvedExecutionErrorsResult(long ExecutionId, long PackageId, string FolderName, string ProjectName, string PackageName, int StatusId, string? StatusName, string? FirstErrorMessage, DateTimeOffset? CreatedAt, DateTimeOffset? StartedAt, DateTimeOffset? EndedAt, string? EnvironmentFolder, string? EnvironmentName, string CalledBy, string ExecutedAs, string? StoppedBy, bool Use32BitRuntime, int? DurationSeconds, string? DurationDisplay, string? ServerName)
+        public UnresolvedExecutionErrorsResult(long ExecutionId, long PackageId, string FolderName, string ProjectName, string PackageName, int StatusId, string StatusName, string FirstErrorMessage, DateTimeOffset? CreatedAt, DateTimeOffset? StartedAt, DateTimeOffset? EndedAt, string EnvironmentFolder, string EnvironmentName, string CalledBy, string ExecutedAs, string StoppedBy, bool Use32BitRuntime, int? DurationSeconds, string DurationDisplay, string ServerName)
         {
              this.ExecutionId = ExecutionId;
              this.PackageId = PackageId;
@@ -140,12 +138,12 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// Maps to table value column StatusName.
         /// </summary>
-        public string? StatusName { set; get; }
+        public string StatusName { set; get; }
 
         /// <summary>
         /// Maps to table value column FirstErrorMessage.
         /// </summary>
-        public string? FirstErrorMessage { set; get; }
+        public string FirstErrorMessage { set; get; }
 
         /// <summary>
         /// Maps to table value column CreatedAt.
@@ -165,12 +163,12 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// Maps to table value column EnvironmentFolder.
         /// </summary>
-        public string? EnvironmentFolder { set; get; }
+        public string EnvironmentFolder { set; get; }
 
         /// <summary>
         /// Maps to table value column EnvironmentName.
         /// </summary>
-        public string? EnvironmentName { set; get; }
+        public string EnvironmentName { set; get; }
 
         /// <summary>
         /// Maps to table value column CalledBy.
@@ -185,7 +183,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// Maps to table value column StoppedBy.
         /// </summary>
-        public string? StoppedBy { set; get; }
+        public string StoppedBy { set; get; }
 
         /// <summary>
         /// Maps to table value column Use32BitRuntime.
@@ -200,12 +198,12 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// Maps to table value column DurationDisplay.
         /// </summary>
-        public string? DurationDisplay { set; get; }
+        public string DurationDisplay { set; get; }
 
         /// <summary>
         /// Maps to table value column ServerName.
         /// </summary>
-        public string? ServerName { set; get; }
+        public string ServerName { set; get; }
     }
 
 

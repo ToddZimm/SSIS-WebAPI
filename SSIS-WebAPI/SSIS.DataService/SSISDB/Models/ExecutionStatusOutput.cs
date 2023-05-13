@@ -11,8 +11,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.SSISDB.Models
 {
-    #nullable enable
-
 
     #region usings
 
@@ -31,7 +29,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// List of ExecutionStatusResult.
         /// </summary>
-        public List<ExecutionStatusResult>? ResultData { set; get; }
+        public List<ExecutionStatusResult> ResultData { set; get; }
 
         #endregion Result Data
     }
@@ -55,7 +53,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <param name="Value">Maps to table value column Value.</param>
         /// <param name="Name">Maps to table value column Name.</param>
         /// <param name="Description">Maps to table value column Description.</param>
-        public ExecutionStatusResult(int? Value, string? Name, string? Description)
+        public ExecutionStatusResult(int? Value, string Name, string Description)
         {
              this.Value = Value;
              this.Name = Name;
@@ -71,12 +69,12 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// Maps to table value column Name.
         /// </summary>
-        public string? Name { set; get; }
+        public string Name { set; get; }
 
         /// <summary>
         /// Maps to table value column Description.
         /// </summary>
-        public string? Description { set; get; }
+        public string Description { set; get; }
     }
 
 

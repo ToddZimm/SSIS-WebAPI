@@ -10,8 +10,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.Samples.Models
 {
-    #nullable enable
-
     #region usings
 
     using SqlPlusBase;
@@ -35,7 +33,7 @@ namespace SSIS.DataService.Samples.Models
         /// Parameterized constructor for HelloWorldInput.
         /// </summary>
         /// <param name="Name">Maps to parameter @Name.</param>
-        public HelloWorldInput(string? Name)
+        public HelloWorldInput(string Name)
         {
             this.Name = Name;
         }
@@ -44,13 +42,13 @@ namespace SSIS.DataService.Samples.Models
 
         #region Fields
 
-        private string? _Name;
+        private string _Name;
         /// <summary>
         /// Maps to parameter @Name.
         /// </summary>
         [Required]
         [MaxLength(32)]
-        public string? Name
+        public string Name
         {
             get => _Name;
             set => _Name = value;

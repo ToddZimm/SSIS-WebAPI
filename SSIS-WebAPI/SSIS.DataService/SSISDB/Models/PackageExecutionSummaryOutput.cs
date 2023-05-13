@@ -11,8 +11,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.SSISDB.Models
 {
-    #nullable enable
-
 
     #region usings
 
@@ -41,7 +39,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// List of PackageExecutionSummaryResult.
         /// </summary>
-        public List<PackageExecutionSummaryResult>? ResultData { set; get; }
+        public List<PackageExecutionSummaryResult> ResultData { set; get; }
 
         #endregion Result Data
     }
@@ -73,7 +71,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <param name="FailedCount">Maps to table value column FailedCount.</param>
         /// <param name="AverageDurationSeconds">Maps to table value column AverageDurationSeconds.</param>
         /// <param name="AverageDurationDisplay">Maps to table value column AverageDurationDisplay.</param>
-        public PackageExecutionSummaryResult(long package_id, string package_name, string project_name, string folder_name, DateTimeOffset? FirstExecutionStartedAt, DateTimeOffset? LastExecutionStartedAt, int? ExecutionCount, int? SuccessCount, int? FailedCount, int? AverageDurationSeconds, string? AverageDurationDisplay)
+        public PackageExecutionSummaryResult(long package_id, string package_name, string project_name, string folder_name, DateTimeOffset? FirstExecutionStartedAt, DateTimeOffset? LastExecutionStartedAt, int? ExecutionCount, int? SuccessCount, int? FailedCount, int? AverageDurationSeconds, string AverageDurationDisplay)
         {
              this.package_id = package_id;
              this.package_name = package_name;
@@ -142,7 +140,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// Maps to table value column AverageDurationDisplay.
         /// </summary>
-        public string? AverageDurationDisplay { set; get; }
+        public string AverageDurationDisplay { set; get; }
     }
 
 

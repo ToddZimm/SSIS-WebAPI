@@ -14,6 +14,6 @@ namespace SSIS.API.Models
 
     public class Folders
     {
-        public List<Folder> Value { set; get; }
+        public List<Folder>? Value { set; get; }
     }
 }

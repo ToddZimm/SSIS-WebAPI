@@ -11,8 +11,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.Samples.Models
 {
-    #nullable enable
-
     /// <summary>
     /// Output object for HelloWorld service.
     /// </summary>
@@ -52,7 +50,7 @@ namespace SSIS.DataService.Samples.Models
         /// <summary>
         /// Single instance of HelloWorldResult.
         /// </summary>
-        public HelloWorldResult? ResultData { set; get; }
+        public HelloWorldResult ResultData { set; get; }
 
         #endregion Result Data
     }

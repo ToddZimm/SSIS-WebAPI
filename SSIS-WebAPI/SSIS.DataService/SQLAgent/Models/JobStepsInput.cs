@@ -10,8 +10,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.SQLAgent.Models
 {
-    #nullable enable
-
     #region usings
 
     using SqlPlusBase;

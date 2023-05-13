@@ -11,8 +11,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.SQLAgent.Models
 {
-    #nullable enable
-
 
     #region usings
 
@@ -59,7 +57,7 @@ namespace SSIS.DataService.SQLAgent.Models
         /// <summary>
         /// Single instance of JobsByIdResult.
         /// </summary>
-        public JobsByIdResult? ResultData { set; get; }
+        public JobsByIdResult ResultData { set; get; }
 
         #endregion Result Data
     }
@@ -93,7 +91,7 @@ namespace SSIS.DataService.SQLAgent.Models
         /// <param name="EnabledScheduleCount">Maps to table value column EnabledScheduleCount.</param>
         /// <param name="StepCount">Maps to table value column StepCount.</param>
         /// <param name="SSISStepCount">Maps to table value column SSISStepCount.</param>
-        public JobsByIdResult(Guid JobId, string Name, string? ServerName, string? OwnerName, string? Status, string? Description, string? Category, DateTime CreatedAt, DateTime ModifiedAt, int? ScheduleCount, int? EnabledScheduleCount, int? StepCount, int? SSISStepCount)
+        public JobsByIdResult(Guid JobId, string Name, string ServerName, string OwnerName, string Status, string Description, string Category, DateTime CreatedAt, DateTime ModifiedAt, int? ScheduleCount, int? EnabledScheduleCount, int? StepCount, int? SSISStepCount)
         {
              this.JobId = JobId;
              this.Name = Name;
@@ -124,27 +122,27 @@ namespace SSIS.DataService.SQLAgent.Models
         /// <summary>
         /// Maps to table value column ServerName.
         /// </summary>
-        public string? ServerName { set; get; }
+        public string ServerName { set; get; }
 
         /// <summary>
         /// Maps to table value column OwnerName.
         /// </summary>
-        public string? OwnerName { set; get; }
+        public string OwnerName { set; get; }
 
         /// <summary>
         /// Maps to table value column Status.
         /// </summary>
-        public string? Status { set; get; }
+        public string Status { set; get; }
 
         /// <summary>
         /// Maps to table value column Description.
         /// </summary>
-        public string? Description { set; get; }
+        public string Description { set; get; }
 
         /// <summary>
         /// Maps to table value column Category.
         /// </summary>
-        public string? Category { set; get; }
+        public string Category { set; get; }
 
         /// <summary>
         /// Maps to table value column CreatedAt.

@@ -11,8 +11,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.SSISDB.Models
 {
-    #nullable enable
-
 
     #region usings
 
@@ -41,7 +39,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// List of FoldersResult.
         /// </summary>
-        public List<FoldersResult>? ResultData { set; get; }
+        public List<FoldersResult> ResultData { set; get; }
 
         #endregion Result Data
     }
@@ -67,7 +65,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <param name="Description">Maps to table value column Description.</param>
         /// <param name="CreatedAt">Maps to table value column CreatedAt.</param>
         /// <param name="CreatedBy">Maps to table value column CreatedBy.</param>
-        public FoldersResult(long FolderId, string Name, string? Description, DateTimeOffset CreatedAt, string CreatedBy)
+        public FoldersResult(long FolderId, string Name, string Description, DateTimeOffset CreatedAt, string CreatedBy)
         {
              this.FolderId = FolderId;
              this.Name = Name;
@@ -90,7 +88,7 @@ namespace SSIS.DataService.SSISDB.Models
         /// <summary>
         /// Maps to table value column Description.
         /// </summary>
-        public string? Description { set; get; }
+        public string Description { set; get; }
 
         /// <summary>
         /// Maps to table value column CreatedAt.

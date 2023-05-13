@@ -8,6 +8,10 @@
 
     DECLARE
 
+    --+Default=0
+    --+Comment=Parent Folder ID to limit the Project results
+    @FolderId bigint = 0,
+
     --+Output
     @Count int
 
@@ -24,7 +28,8 @@ SELECT p.project_id ProjectId
   ,p.last_validation_time LastValidationAt
   ,p.validation_status ValidationStatus
 FROM catalog.projects p
-LEFT JOIN catalog.folders f on f.folder_id = p.folder_id;
+LEFT JOIN catalog.folders f on f.folder_id = p.folder_id
+WHERE (@FolderId = 0 OR p.folder_id = @FolderId);
 
 SET @Count = @@ROWCOUNT;
 

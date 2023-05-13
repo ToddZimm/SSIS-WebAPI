@@ -19,7 +19,7 @@
    
     --+Default=0
     --+Comment=Provide a Package ID to filter results
-    @PackageId int = 0,
+    @PackageId bigint = 0,
 
     --+Default=0
     --+Comment=Provide a status value to filter results

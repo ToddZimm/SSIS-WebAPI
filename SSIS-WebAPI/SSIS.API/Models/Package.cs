@@ -9,7 +9,7 @@
         public string? FolderName { set; get; }
         public int PackageFormatVersion { set; get; }
         public string? ValidationStatus { set; get; }
-        public DateTimeOffset LastValidationAt { set; get; }
+        public DateTimeOffset? LastValidationAt { set; get; }
         public Guid PackageGuid { set; get; }
         public Guid VersionGuid { set; get; }
         public int VersionMajor { set; get; }

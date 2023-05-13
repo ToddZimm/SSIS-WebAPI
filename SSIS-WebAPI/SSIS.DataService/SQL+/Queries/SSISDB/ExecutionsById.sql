@@ -9,7 +9,7 @@
     DECLARE
 
     --+Required
-    @Id int = 10,
+    @Id bigint = 10,
 
     --+Output
     @ReturnValue int

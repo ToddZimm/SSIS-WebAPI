@@ -10,8 +10,6 @@
 // --------------------------------------------------------------------------------------------------------
 namespace SSIS.DataService.Samples
 {
-    #nullable enable
-
     #region Using Statments
 
     using SSIS.DataService.Samples.Models;

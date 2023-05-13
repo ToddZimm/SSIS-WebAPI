@@ -28,7 +28,7 @@ namespace SSIS.API.Controllers
             }
             else
             {
-                return Ok(FolderMapper.MapSet(folders.ResultData));
+                return Ok(FolderMapper.MapList(folders.ResultData));
             }
         }
 
@@ -44,7 +44,7 @@ namespace SSIS.API.Controllers
             }
             else
             {
-                List<ProjectsResult> projects = _dataService.Projects().ResultData.Where(f => f.FolderId == folderOutput.ResultData.FolderId).ToList();
+                List<ProjectsResult> projects = _dataService.Projects(new ProjectsInput(folderOutput.ResultData.FolderId)).ResultData;
                 return Ok(FolderMapper.Map(folderOutput.ResultData, projects));
             }
         }

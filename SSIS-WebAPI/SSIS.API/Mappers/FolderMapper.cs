@@ -5,7 +5,7 @@ namespace SSIS.API.Mappers
 {
     public static class FolderMapper
     {
-        public static Folder Map (FoldersByIdResult foldersByIdResult, List<ProjectsResult>? projects)
+        public static Folder Map (FoldersByIdResult foldersByIdResult, List<ProjectsResult> projects)
         {
             Folder folder = new Folder()
             {
@@ -37,7 +37,7 @@ namespace SSIS.API.Mappers
             return folder;
         }
 
-        public static Folders MapSet (List<FoldersResult> foldersResults)
+        public static Folders MapList (List<FoldersResult> foldersResults)
         {
             List<Folder> folders = new List<Folder>(foldersResults.Count);
             foreach (var f in foldersResults)
