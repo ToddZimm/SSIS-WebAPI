@@ -5,6 +5,7 @@
         public long PackageId { set; get; }
         public string? Name { set; get; }
         public string? Description { set; get; }
+        public long ProjectId { set; get; }
         public string? ProjectName { set; get; }
         public string? FolderName { set; get; }
         public int PackageFormatVersion { set; get; }

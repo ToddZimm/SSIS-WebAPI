@@ -19,6 +19,7 @@
 SELECT p.package_id PackageId
   ,p.name Name
   ,p.description Description
+  ,p.project_id ProjectId
   ,pr.name ProjectName
   ,f.name FolderName
   ,p.package_format_version PackageFormatVersion

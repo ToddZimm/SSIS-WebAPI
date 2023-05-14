@@ -1,1 +1,1 @@
-{"DatabaseType":"MSSQLServer","ConnectionString":"Server=localhost;Database=SSISDB;Trusted_Connection=True;Encrypt=False"}
+{"DatabaseType":"MSSQLServer","ConnectionString":"Server=localhost;Database=SSISDB;Trusted_Connection=True;Encrypt=False;Connect Timeout=120;"}

@@ -7,7 +7,7 @@ namespace SSIS.API.Mappers
     {
         public static Project Map(ProjectsByIdResult projectsByIdResult, List<PackagesResult> packagesResults)
         {
-            Project project = new Project()
+            Project project = new()
             {
                 ProjectId = projectsByIdResult.ProjectId,   
                 Name = projectsByIdResult.Name, 
@@ -48,7 +48,7 @@ namespace SSIS.API.Mappers
 
         public static Projects MapList (List<ProjectsResult> projectsResults)
         {
-            List<Project> projects = new List<Project>();
+            List<Project> projects = new();
             foreach (var projectResult in projectsResults)
             {
                 projects.Add(new Project()
