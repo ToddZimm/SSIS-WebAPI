@@ -8,22 +8,22 @@
 
     DECLARE
 
+    --+InOut
     --+Default=1
     --+Comment=Page number
-    @Page int = 1,
+    @Page int,
 
+    --+InOut
     --+Range=10,100
 	--+Default=25
 	--+Comment=Number of records per page to return
-    @PageSize int = 25,
+    @PageSize int,
    
-    --+Default=0
     --+Comment=Provide a Package ID to filter results
-    @PackageId bigint = 0,
+    @PackageId bigint,
 
-    --+Default=0
     --+Comment=Provide a status value to filter results
-    @Status int = 0,
+    @Status int,
 
     --+Comment=Start date and time to filter results
     @StartTime datetime,
@@ -35,6 +35,9 @@
     @Count int
 
 --+Parameters
+
+SET @Page = ISNULL(@Page, 1);
+SET @PageSize = ISNULL(@PageSize, 25);
 
 SELECT ex.execution_id ExecutionId
   ,ISNULL(pkg.package_id, 0) PackageId
@@ -84,7 +87,7 @@ LEFT JOIN (
   LEFT JOIN catalog.projects pr on pr.project_id = p.project_id
   LEFT JOIN catalog.folders f on f.folder_id = pr.folder_id
 ) pkg ON pkg.folder_name = ex.folder_name AND pkg.project_name = ex.project_name AND pkg.package_name = ex.package_name
-WHERE (@PackageId = 0 OR pkg.package_id = @PackageId)
+WHERE (@PackageId IS NULL OR pkg.package_id = @PackageId)
   AND (@StartTime IS NULL OR ex.start_time >= @StartTime)
   AND (@EndTime IS NULL OR ex.start_time <= @EndTime)
 ORDER BY ex.start_time DESC, ex.execution_id DESC
