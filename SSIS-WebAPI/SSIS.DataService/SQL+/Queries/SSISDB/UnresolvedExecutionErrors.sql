@@ -50,10 +50,12 @@ SELECT ex.execution_id ExecutionId
   ,machine_name ServerName
 FROM catalog.executions ex 
 INNER JOIN (
+    -- Last execution of each package
 	SELECT folder_name, project_name, package_name, max(execution_id) last_execution_id
 	FROM catalog.executions
 	GROUP BY folder_name, project_name, package_name) lastexec on ex.execution_id = lastexec.last_execution_id
 INNER JOIN (
+  -- Get Package ID
   SELECT f.name folder_name, pr.name project_name, p.name package_name, p.package_id
   FROM catalog.packages p
   LEFT JOIN catalog.projects pr on pr.project_id = p.project_id
