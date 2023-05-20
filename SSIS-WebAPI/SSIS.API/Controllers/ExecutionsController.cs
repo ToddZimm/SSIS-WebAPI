@@ -44,6 +44,18 @@ namespace SSIS.API.Controllers
             }
         }
 
+        // GET api/<ExecutionsController>/UnresolvedErrors
+        [HttpGet]
+        [Route("api/[Controller]/UnresolvedErrors")]
+        public ActionResult<Executions> Get()
+        {
+            var results = _dataService.UnresolvedExecutionErrors();
+            if (results.Count == 0)
+                return NoContent();
+            else
+                return Ok(ExecutionMapper.MapList(results));
+        }
+
         // GET api/<ExecutionsController>/5
         [HttpGet("{id}")]
         public ActionResult<Execution> Get(long id, [FromQuery] bool verboseMessages = false)

@@ -92,5 +92,46 @@ namespace SSIS.API.Mappers
 
            return executions;
         }
+
+        public static Executions MapList (UnresolvedExecutionErrorsOutput output)
+        {
+            Executions executions = new()
+            {
+                Page = 1,
+                PageSize = output.Count,
+                Value = new List<Execution>()
+            };
+            
+            foreach (var exec in output.ResultData)
+            {
+                executions.Value.Add(new Execution()
+                {
+                    ExecutionId = exec.ExecutionId,
+                    PackageId = exec.PackageId,
+                    FolderName = exec.FolderName,
+                    ProjectName = exec.ProjectName,
+                    PackageName = exec.PackageName,
+                    StatusId = exec.StatusId,
+                    StatusName = exec.StatusName,
+                    FirstErrorMessage = exec.FirstErrorMessage,
+                    CreatedAt = exec.CreatedAt,
+                    StartedAt = exec.StartedAt,
+                    EndedAt = exec.EndedAt,
+                    EnvironmentFolder = exec.EnvironmentFolder,
+                    EnvironmentName = exec.EnvironmentName,
+                    CalledBy = exec.CalledBy,
+                    ExecutedAs = exec.ExecutedAs,
+                    StoppedBy = exec.StoppedBy,
+                    Use32BitRuntime = exec.Use32BitRuntime,
+                    DurationSeconds = exec.DurationSeconds,
+                    DurationDisplay = exec.DurationDisplay,
+                    ServerName = exec.ServerName,
+                    Messages = new List<ExecutionMessage>()
+                });
+            }
+
+            return executions;
+
+        }
     }
 }
