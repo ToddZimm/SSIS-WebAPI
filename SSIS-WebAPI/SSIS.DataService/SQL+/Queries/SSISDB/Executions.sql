@@ -90,6 +90,7 @@ LEFT JOIN (
 WHERE (@PackageId IS NULL OR pkg.package_id = @PackageId)
   AND (@StartTime IS NULL OR ex.start_time >= @StartTime)
   AND (@EndTime IS NULL OR ex.start_time <= @EndTime)
+  AND (@Status IS NULL OR ex.status = @Status)
 ORDER BY ex.start_time DESC, ex.execution_id DESC
 OFFSET ((@Page - 1) * @PageSize) ROWS
 FETCH NEXT @PageSize ROWS ONLY;
