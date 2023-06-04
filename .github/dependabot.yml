@@ -4,6 +4,6 @@
 version: 2
 updates:
   - package-ecosystem: "nuget"
-    directory: "/"
+    directory: "/SSIS-WebAPI/"
     schedule:
       interval: "weekly"
