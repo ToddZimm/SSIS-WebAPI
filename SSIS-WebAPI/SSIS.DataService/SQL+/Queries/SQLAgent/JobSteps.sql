@@ -11,7 +11,7 @@
     @JobId uniqueidentifier,
 
     --+Comment=SSIS Package ID called in step to filter results
-    @PackageId int,
+    @PackageId bigint,
 
     --+Output
     @Count int

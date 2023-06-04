@@ -46,7 +46,7 @@ namespace SSIS.API.Controllers
 
         // GET api/<ExecutionsController>/UnresolvedErrors
         [HttpGet]
-        [Route("api/[Controller]/UnresolvedErrors")]
+        [Route("UnresolvedErrors")]
         public ActionResult<Executions> Get()
         {
             var results = _dataService.UnresolvedExecutionErrors();

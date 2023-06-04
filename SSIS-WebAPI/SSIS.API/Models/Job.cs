@@ -71,6 +71,7 @@
         /// Job steps
         ///</summary>
         public List<JobStep> Steps { set; get; } = new();
+        public List<JobSchedule> Schedules { set; get; } = new();
     }
 
     public class Jobs

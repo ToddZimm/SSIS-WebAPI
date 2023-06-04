@@ -47,5 +47,6 @@ LEFT JOIN (
   LEFT JOIN msdb.dbo.sysschedules s ON s.schedule_id = js.schedule_id
   GROUP BY js.job_id
 ) Sched ON job.job_id = Sched.job_id
+ORDER BY job.name;
 
 SET @Count = @@ROWCOUNT;

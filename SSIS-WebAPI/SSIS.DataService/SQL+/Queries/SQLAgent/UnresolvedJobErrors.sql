@@ -14,12 +14,16 @@
 --+Parameters
 
 SELECT sjh.instance_id InstanceId
+  ,sjh.instance_id ParentInstanceId
   ,sjh.job_id JobId
   ,j.name JobName
   ,sjh.step_id StepSequenceId
   ,sjh.step_name StepName
-  ,step.subsystem
-  ,step.command
+  ,step.subsystem Subsystem
+  ,step.command Command
+  ,NULL SSISPackageId
+  ,'' SSISPackagePath
+  ,NULL SSISExecutionId
   ,sjh.message Message
   ,jt.start_time StartedAt
   ,jt.end_time EndedAt
@@ -31,6 +35,7 @@ SELECT sjh.instance_id InstanceId
        THEN FORMAT(DATEDIFF(SECOND, jt.start_time, jt.end_time) / 60.0, 'N1') + ' minutes'
      ELSE FORMAT(DATEDIFF(SECOND, jt.start_time, jt.end_time) / 60.0 / 60.0, 'N1') + ' hours'
    END AS DurationDisplay
+  ,sjh.run_status RunStatusId
   ,CASE sjh.run_status
      WHEN 0 THEN 'Failed'
      WHEN 1 THEN 'Succeeded'
@@ -38,24 +43,11 @@ SELECT sjh.instance_id InstanceId
      WHEN 3 THEN 'Canceled'
      WHEN 4 THEN 'Step output'
      ELSE 'Unknown'
-   END RunStatus
+   END RunStatusName
   ,sjh.retries_attempted RetriesAttempted
   ,sjh.sql_message_id SqlMessageId
   ,sjh.sql_severity SqlSeverity
   ,sjh.server Server
-  ,pkgex.package_path PackagePath
-  ,pkgex.execution_id ExecutionId
-  ,CAST(CASE pkgex.status
-     WHEN 1 THEN 'Created'
-     WHEN 2 THEN 'Running'
-     WHEN 3 THEN 'Cancelled'
-     WHEN 4 THEN 'Failed'
-     WHEN 5 THEN 'Pending'
-     WHEN 6 THEN 'Ended Unexpectedly'
-     WHEN 7 THEN 'Succeeded'
-     WHEN 8 THEN 'Stopping'
-     WHEN 9 THEN 'Completed'
-   END AS nvarchar(20)) ExecutionStatus
   ,opemail.name OperatorEmailed
   ,opnet.name OperatorNetSent
   ,oppage.name OperatorPaged
@@ -75,20 +67,11 @@ OUTER APPLY (
 ) jt
 LEFT JOIN msdb.dbo.sysjobs j ON j.job_id = sjh.job_id
 LEFT JOIN msdb.dbo.sysjobsteps step ON sjh.job_id = step.job_id and sjh.step_id = step.step_id
-LEFT JOIN (
-  SELECT CAST(folder_name + '\' + project_name + '\' + package_name AS nvarchar(500)) package_path
-    ,CAST(start_time as datetime) start_time
-    ,CAST(end_time as datetime) end_time
-    ,execution_id
-    ,status
-  FROM SSISDB.catalog.executions
-) pkgex ON step.command LIKE '%' + pkgex.package_path + '%'
-           AND pkgex.start_time >= jt.start_time and pkgex.end_time <= jt.end_time
-           and step.subsystem = 'SSIS'
 LEFT JOIN msdb.dbo.sysoperators opemail ON opemail.id = sjh.operator_id_emailed
 LEFT JOIN msdb.dbo.sysoperators opnet ON opnet.id = sjh.operator_id_netsent
 LEFT JOIN msdb.dbo.sysoperators oppage ON oppage.id = sjh.operator_id_paged
 WHERE sjh.run_status IN (0,3)  -- failed, cancelled
+  and j.enabled = 1
 ORDER BY jt.start_time DESC;
 
 SET @Count = @@ROWCOUNT;

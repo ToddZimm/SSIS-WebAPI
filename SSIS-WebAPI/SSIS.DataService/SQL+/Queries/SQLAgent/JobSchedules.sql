@@ -26,7 +26,7 @@ SELECT sched.schedule_id ScheduleId
     WHEN 1
       THEN 'Enabled'
     ELSE 'Disabled'
-    END [STATUS]
+    END [Status]
   ,CASE
      WHEN jobsched.next_run_date > 0 
        THEN CAST(
