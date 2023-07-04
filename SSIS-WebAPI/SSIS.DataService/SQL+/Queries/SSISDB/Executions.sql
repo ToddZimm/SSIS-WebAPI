@@ -48,7 +48,7 @@ SELECT ex.execution_id ExecutionId
   ,CAST(CASE ex.status
      WHEN 1 THEN 'Created'
      WHEN 2 THEN 'Running'
-     WHEN 3 THEN 'Cancelled'
+     WHEN 3 THEN 'Canceled'
      WHEN 4 THEN 'Failed'
      WHEN 5 THEN 'Pending'
      WHEN 6 THEN 'Ended Unexpectedly'

@@ -23,9 +23,9 @@ namespace SSIS.DataService.Enumerations
         Running = 2,
 
         /// <summary>
-        /// Enumerated value for Cancelled
+        /// Enumerated value for Canceled
         /// </summary>
-        Cancelled = 3,
+        Canceled = 3,
 
         /// <summary>
         /// Enumerated value for Failed

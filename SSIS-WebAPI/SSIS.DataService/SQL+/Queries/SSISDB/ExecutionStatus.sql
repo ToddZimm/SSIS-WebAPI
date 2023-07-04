@@ -15,7 +15,7 @@ SELECT [Value]
   ,CAST(CASE [Value]
      WHEN 1 THEN 'Created'
      WHEN 2 THEN 'Running'
-     WHEN 3 THEN 'Cancelled'
+     WHEN 3 THEN 'Canceled'
      WHEN 4 THEN 'Failed'
      WHEN 5 THEN 'Pending'
      WHEN 6 THEN 'Ended Unexpectedly'
@@ -26,7 +26,7 @@ SELECT [Value]
   ,CAST(CASE [Value]
      WHEN 1 THEN 'Execution created'
      WHEN 2 THEN 'Execution running'
-     WHEN 3 THEN 'Execution cancelled'
+     WHEN 3 THEN 'Execution canceled'
      WHEN 4 THEN 'Execution failed'
      WHEN 5 THEN 'Execution pending'
      WHEN 6 THEN 'Execution ended unexpectedly'

@@ -20,7 +20,7 @@ SELECT ex.execution_id ExecutionId
   ,ex.package_name PackageName
   ,ex.status StatusId
   ,CAST(CASE ex.status
-     WHEN 3 THEN 'Cancelled'
+     WHEN 3 THEN 'Canceled'
      WHEN 4 THEN 'Failed'
      WHEN 6 THEN 'Ended Unexpectedly'
    END AS nvarchar(20)) StatusName
