@@ -23,7 +23,9 @@ namespace SSIS.API.Mappers
                 VersionMajor = packagesByIdResult.VersionMajor,
                 VersionMinor = packagesByIdResult.VersionMinor,
                 VersionBuild = packagesByIdResult.VersionBuild,
-                VersionComments = packagesByIdResult.VersionComments
+                VersionComments = packagesByIdResult.VersionComments,
+                CreatedAt = packagesByIdResult.CreatedAt,
+                LastDeployedAt = packagesByIdResult.LastDeployedAt
             };
 
             return package;
@@ -50,7 +52,9 @@ namespace SSIS.API.Mappers
                     VersionMajor = package.VersionMajor,
                     VersionMinor = package.VersionMinor,
                     VersionBuild = package.VersionBuild,
-                    VersionComments = package.VersionComments
+                    VersionComments = package.VersionComments,
+                    CreatedAt = package.CreatedAt,
+                    LastDeployedAt = package.LastDeployedAt
                 });
             }
             

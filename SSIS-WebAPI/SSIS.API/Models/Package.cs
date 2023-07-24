@@ -17,6 +17,8 @@
         public int VersionMinor { set; get; }
         public int VersionBuild { set; get; }
         public string? VersionComments { set; get; }
+        public DateTimeOffset? CreatedAt { set; get; }
+        public DateTimeOffset? LastDeployedAt { set; get; }
     }
 
     public class Packages

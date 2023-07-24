@@ -32,6 +32,8 @@ SELECT p.package_id PackageId
   ,p.version_minor VersionMinor
   ,p.version_build VersionBuild
   ,p.version_comments VersionComments
+  ,pr.created_time CreatedAt
+  ,pr.last_deployed_time LastDeployedAt
 FROM catalog.packages p
 LEFT JOIN catalog.projects pr on pr.project_id = p.project_id
 LEFT JOIN catalog.folders f on f.folder_id = pr.folder_id
